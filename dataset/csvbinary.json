@@ -1,15 +1,24 @@
 {
-	"name": "Binary1",
+	"name": "csvbinary",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLS",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folder": {
+				"type": "String"
+			}
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				},
 				"fileSystem": "source"
 			}
 		}
