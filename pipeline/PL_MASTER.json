@@ -17,7 +17,7 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
-						"source_system": "\nneon_postgres",
+						"source_system": "neon_postgres",
 						"adf_run_id": {
 							"value": "@pipeline().RunId",
 							"type": "Expression"
@@ -28,6 +28,8 @@
 			{
 				"name": "Source to Silver adls",
 				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"secureInput": false
@@ -51,6 +53,8 @@
 			{
 				"name": "Silver to Gold",
 				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Source to Silver Postgres",
