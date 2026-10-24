@@ -48,6 +48,7 @@
 						"value": "@activity('azure_sql_source_read').output.value",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "PL_Landing_to_Silver",
@@ -69,7 +70,17 @@
 									"referenceName": "PL_SOURCE_TO_SILVER_INNER",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"table_id": {
+										"value": "@item().table_id",
+										"type": "Expression"
+									},
+									"adf_run_id": {
+										"value": "@pipeline().parameters.adf_run_id",
+										"type": "Expression"
+									}
+								}
 							}
 						},
 						{
