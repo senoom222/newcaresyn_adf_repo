@@ -1267,8 +1267,6 @@
 					{
 						"name": "Source to Silver adls",
 						"type": "ExecutePipeline",
-						"state": "Inactive",
-						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [],
 						"policy": {
 							"secureInput": false
@@ -1292,8 +1290,6 @@
 					{
 						"name": "Silver to Gold",
 						"type": "ExecutePipeline",
-						"state": "Inactive",
-						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [
 							{
 								"activity": "Source to Silver Postgres",
