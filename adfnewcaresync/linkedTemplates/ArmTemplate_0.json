@@ -729,44 +729,6 @@
 								}
 							]
 						}
-					},
-					{
-						"name": "Landing_to_Bronze_copy1",
-						"type": "DatabricksNotebook",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/newcaresync-repo/adb-newcaresync/Landing_to_Bronze",
-							"baseParameters": {
-								"source_system": {
-									"value": "@activity('Read table id from outer pipeline').output.firstRow.source_system",
-									"type": "Expression"
-								},
-								"source_table_name": {
-									"value": "@activity('Read table id from outer pipeline').output.firstRow.bronze_table_name",
-									"type": "Expression"
-								},
-								"landing_timestamp": {
-									"value": "@variables('starttime')",
-									"type": "Expression"
-								},
-								"source_file_format": {
-									"value": "@coalesce(activity('Read table id from outer pipeline').output.firstRow.source_file_format,'')",
-									"type": "Expression"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "LS_AzureDatabricks",
-							"type": "LinkedServiceReference"
-						}
 					}
 				],
 				"policy": {
@@ -1294,7 +1256,7 @@
 							},
 							"waitOnCompletion": true,
 							"parameters": {
-								"source_system": "\nneon_postgres",
+								"source_system": "neon_postgres",
 								"adf_run_id": {
 									"value": "@pipeline().RunId",
 									"type": "Expression"
@@ -1305,6 +1267,8 @@
 					{
 						"name": "Source to Silver adls",
 						"type": "ExecutePipeline",
+						"state": "Inactive",
+						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [],
 						"policy": {
 							"secureInput": false
@@ -1328,6 +1292,8 @@
 					{
 						"name": "Silver to Gold",
 						"type": "ExecutePipeline",
+						"state": "Inactive",
+						"onInactiveMarkAs": "Succeeded",
 						"dependsOn": [
 							{
 								"activity": "Source to Silver Postgres",
