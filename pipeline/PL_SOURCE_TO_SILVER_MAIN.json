@@ -147,6 +147,33 @@
 								],
 								"scriptBlockExecutionTimeout": "02:00:00"
 							}
+						},
+						{
+							"name": "Pipeline Failure Message",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "PL_Landing_to_Silver",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Inner Pipeline Failed",
+								"errorCode": "500"
+							}
+						},
+						{
+							"name": "Pipeline Failure Message_copy1",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Inner Pipeline Failed",
+								"errorCode": "500"
+							}
 						}
 					]
 				}
