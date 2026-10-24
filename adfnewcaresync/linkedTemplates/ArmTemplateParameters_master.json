@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfnewcaresync"
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://newcaresync.dfs.core.windows.net/"
+		},
+		"LS_AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"value": "1024-053333-zjtwkkkn"
+		},
+		"LS_AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "sqlserver-newcaresync.database.windows.net"
+		},
+		"LS_AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "sql_db_newcaresync"
+		},
+		"LS_AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "senoom222"
+		},
+		"LS_PostgreSQL_properties_typeProperties_server": {
+			"value": "ep-mute-frog-azu3rzen-pooler.c-3.ap-southeast-1.aws.neon.tech"
+		},
+		"LS_PostgreSQL_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"LS_PostgreSQL_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"LS_keyvault_properties_typeProperties_baseUrl": {
+			"value": "https://newcaresync-key-vault.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
