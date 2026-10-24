@@ -1235,16 +1235,6 @@
 										"message": "Inner Pipeline Failed",
 										"errorCode": "500"
 									}
-								},
-								{
-									"name": "Pipeline Failure Message_copy1",
-									"type": "Fail",
-									"dependsOn": [],
-									"userProperties": [],
-									"typeProperties": {
-										"message": "Inner Pipeline Failed",
-										"errorCode": "500"
-									}
 								}
 							]
 						}
@@ -1287,6 +1277,7 @@
 				"activities": [
 					{
 						"name": "Source to Silver Postgres",
+						"description": "Added Description",
 						"type": "ExecutePipeline",
 						"dependsOn": [],
 						"policy": {
